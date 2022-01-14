@@ -4,6 +4,8 @@ Motivation: Patient stratification is a clinically important task because it all
 
 Results: We devised a methodology that stratify patients considering molecular subtypes and survival outcomes simultaneously. A set of genes was selected from transcriptome data by using genetic algorithm, and their expression quantities were utilized to represent each patient as a risk score. The patients are ordered and stratified according to the score. This methodology was applied to breast cancer patients (TCGA-BRCA), and validated in an independent cohort (SCAN-B). In this experiment, our method was successful in stratifying patients in accordance with both molecular subtype and survival outcome. The robustness of the results was shown through repeated experiments, and genes related to prognosis of patients were successfully identified. Additionally, it was observed that the risk score can be used to evaluate the molecular aggressiveness of individual patients.
 
+![image](https://github.com/BonilKoo/patient_stratification/blob/main/overview.png)
+
 ## Data preparation
 Three types of data are required.
 1. Gene expression profile
