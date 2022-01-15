@@ -24,7 +24,7 @@ def parse_args():
     parser.add_argument('--survival', required=True, help='sample event duration (no header)')
     parser.add_argument('--subtype_order', required=True, type=str, help='sparated by comma')
     parser.add_argument('--survival_coef', type=float, default=0.5)
-    parser.add_argument('--n_threads', type=int, default=1)
+#     parser.add_argument('--n_threads', type=int, default=1)
     parser.add_argument('--n_subpop', type=int, default=10)
     parser.add_argument('--n_chrom', type=int, default=150)
     parser.add_argument('--n_init_gene', type=int, default=10)
@@ -210,7 +210,7 @@ class subpopulation:
         self.chrom_list = [chromosome(n_init_gene) for _ in range(n_chrom)]
 
     def fitness_function(self, survival_flag):
-        chrom_fitness_list = parmap.map(chromosome.fitness_function, self.chrom_list, survival_flag, pm_processes=globals()['n_threads'])
+        chrom_fitness_list = parmap.map(chromosome.fitness_function, self.chrom_list, survival_flag, pm_processes=os.cpu_count())
         self.chrom_fitness_dict = dict(zip(self.chrom_list, chrom_fitness_list))
 
     def elitism(self, ratio):
@@ -228,7 +228,7 @@ class subpopulation:
         return winner
 
     def selection_in_non_elites(self, num_participant):
-        return parmap.map(self.tournament_selection, len(self.non_elites) * [num_participant], pm_processes=globals()['n_threads'])
+        return parmap.map(self.tournament_selection, len(self.non_elites) * [num_participant], pm_processes=os.cpu_count())
 
     def crossover(self, idx, selected_chroms, crossover_prob):
         set_seed(globals()[f'seed']) #####
@@ -257,7 +257,7 @@ class subpopulation:
         return [chrom1, chrom2]
 
     def crossover_in_non_elites(self, selected_chroms, crossover_prob):
-        return parmap.map(self.crossover, range(int(len(selected_chroms)/2)), selected_chroms, crossover_prob, pm_processes=globals()['n_threads'])
+        return parmap.map(self.crossover, range(int(len(selected_chroms)/2)), selected_chroms, crossover_prob, pm_processes=os.cpu_count())
 
     def selection_crossover_mutation(self, num_participant, crossover_prob, mutation_prob):
         next_generation = self.elites
@@ -376,7 +376,7 @@ def main():
     globals()['survival_info'] = load_survival_data(args.survival)
 
     globals()['subtype_order'] = args.subtype_order.split(',')
-    globals()['n_threads'] = args.n_threads
+#     globals()['n_threads'] = args.n_threads
     globals()['survival_coef'] = args.survival_coef
     survival_flag = 0
     patience = 0
