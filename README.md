@@ -28,7 +28,7 @@ python patient_stratification.py [options] \\
 + scipy
 + scikit-learn
 + lifelines (https://github.com/CamDavidsonPilon/lifelines)
-+ parmap (if use multiple threads; https://github.com/zeehio/parmap)
++ parmap (https://github.com/zeehio/parmap)
 
 ### Mandatory arguments:
 --outdir <path>
@@ -93,6 +93,3 @@ python patient_stratification.py [options] \\
   
 --seed <int> (default=42)
 : Random seed.
-  
---n_threads <int> (default=1)
-: Number of threads.
