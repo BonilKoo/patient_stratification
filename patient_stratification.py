@@ -367,7 +367,7 @@ def main():
     args = parse_args()
 
     set_seed(args.seed)
-    rmfile(args.outdir)
+#     rmfile(args.outdir)
     mkdir(args.outdir)
 #     mkdir(args.outdir+'/best_geneset')
 
