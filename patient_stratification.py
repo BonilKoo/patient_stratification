@@ -33,6 +33,8 @@ def parse_args():
     parser.add_argument('--crossover_prob', type=float, default=0.3)
     parser.add_argument('--mutation_prob', type=float, default=0.0005)
     parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--score_threshold', type=float, default=0.75)
+    parser.add_argument('--prop_population', type=float, defeault=0.95)
 
     return parser.parse_args()
 
@@ -115,7 +117,7 @@ class chromosome:
     def cal_survival_score(self, survival_low, survival_high):
         logrank_p = logrank_test(survival_low['duration'], survival_high['duration'], survival_low['event'], survival_high['event']).p_value
         if logrank_p < 0.01:
-            logrank_p = 0.01 # upperbound
+            logrank_p = 0.01 # lowerbound
 
         survival_low = survival_low.copy()
         survival_high = survival_high.copy()
@@ -400,7 +402,7 @@ def main():
         if patience == args.patience:
             break
 
-        if (survival_flag == 0) and (((np.array([list(subpop.chrom_fitness_dict.values()) for subpop in pop.subpop_list]).reshape(-1) > 0.75).sum() / (args.n_subpop * args.n_chrom)) > 0.95) and (survival_coef != 0):
+        if (survival_flag == 0) and (((np.array([list(subpop.chrom_fitness_dict.values()) for subpop in pop.subpop_list]).reshape(-1) > args.score_threshold).sum() / (args.n_subpop * args.n_chrom)) > args.prop_population) and (survival_coef != 0):
             survival_flag = 1
             patience = 0
             print('Start including survival term...')
