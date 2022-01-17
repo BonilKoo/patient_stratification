@@ -90,12 +90,12 @@ python patient_stratification.py [options] \\
   
 --patience <int> (default=10)
 : Number of iterations with no improvement after which run will be terminated.
-  
---seed <int> (default=42)
-: Random seed.
 
 --score_threshold (default=0.75)
 : When the proportion of chromosomes that exceeds a certain stratification score (score_threshold) exceeds a certain proportion in the population (prop_population), the survival score is started to be considered in the fitness function.
 
 --prop_population (default=0.95)
 : When the proportion of chromosomes that exceeds a certain stratification score (score_threshold) exceeds a certain proportion in the population (prop_population), the survival score is started to be considered in the fitness function.
+  
+--seed <int> (default=42)
+: Random seed.
