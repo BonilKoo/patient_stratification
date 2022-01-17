@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--mutation_prob', type=float, default=0.0005)
     parser.add_argument('--patience', type=int, default=10)
     parser.add_argument('--score_threshold', type=float, default=0.75)
-    parser.add_argument('--prop_population', type=float, defeault=0.95)
+    parser.add_argument('--prop_population', type=float, default=0.95)
 
     return parser.parse_args()
 
