@@ -338,7 +338,7 @@ def save_sample_info(chrom_file, sample_file):
     res.chrom_info = chrom_info
     
     rank_table = res.sample_rank_in_chrom().reset_index(drop=True)
-    boundary_list = res.set_boundary(rank_table, flag=0)
+    boundary_list = res.set_boundary(rank_table)
     
     subtype_order = globals()[f'subtype_order']
     subtype_idx_dict = {subtype_order[idx]:idx for idx in range(len(subtype_order))}
