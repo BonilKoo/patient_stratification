@@ -356,7 +356,7 @@ def save_sample_info(chrom_file, sample_file):
             else:
                 risk = 'High'
         else:
-            if boundary_list[0][0] <= idx <= boundary_list[subtype_indx-1][1]:
+            if boundary_list[0][0] <= idx <= boundary_list[subtype_idx-1][1]:
                 risk = 'Low'
             elif boundary_list[subtype_idx][0] <= idx <= boundary_list[subtype_idx][1]:
                 risk = 'Intermediate'
