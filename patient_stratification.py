@@ -362,7 +362,7 @@ def save_sample_info(chrom_file, sample_file):
                 risk = 'Intermediate'
             else:
                 risk = 'High'
-        output_file.write(f'{sample}\t{subtype}\t{risk}')
+        output_file.write(f'{sample}\t{subtype}\t{risk}\n')
     output_file.close()
 
 def main():
