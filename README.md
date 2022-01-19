@@ -101,27 +101,30 @@ python patient_stratification.py [options] \\
 : Random seed.
 
 ## Output Files
+
 1. geneset.txt
-  | gene  | ascending  |
-  | --- | --- |
-  | Gene a  | False  |
-  | Gene b  | True  |
-  | Gene c  | False  |
-  | ...  |   |
+
+| gene  | ascending  |
+| --- | --- |
+| Gene a  | False  |
+| Gene b  | True  |
+| Gene c  | False  |
+| ...  |   |
 
 The first column (gene): selected genes.
 
 The second column (ascending): If ascending is True, the gene was selected as having relation with worse prognosis when its expression is high. If ascending is False, the gene was selected as having association with worse prognosis when its expression is low.
 
 2. sample_risk.txt
-  | sample | subtype  | risk  |
-  | --- | --- | --- |
-  | Sample A  | Subtype 1  | Low  |
-  | ...  |   |   |
-  | Sample B  | Subtype 2  | Intermediate  |
-  | ...  |   |   |
-  | Sample C  | Subtype 3  | High  |
-  | ...  |   |   |
+
+| sample | subtype  | risk  |
+| --- | --- | --- |
+| Sample A  | Subtype 1  | Low  |
+| ...  |   |   |
+| Sample B  | Subtype 2  | Intermediate  |
+| ...  |   |   |
+| Sample C  | Subtype 3  | High  |
+| ...  |   |   |
 
 The first column (sample): each sample.
 
