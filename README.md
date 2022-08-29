@@ -129,3 +129,9 @@ The first column (sample): each sample.
 The second column (subtype): subtype of the sample.
 
 The third column (risk): predicted risk within each subtype.
+
+# Citation
+Koo, Bonil, et al. "Risk Stratification for Breast Cancer Patient by Simultaneous Learning of Molecular Subtype and Survival Outcome Using Genetic Algorithm-Based Gene Set Selection." Cancers 14.17 (2022): 4120. (https://doi.org/10.3390/cancers14174120)
+```
+
+```
